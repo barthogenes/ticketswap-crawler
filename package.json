@@ -1,0 +1,32 @@
+{
+  "name": "ticketswap-crawler",
+  "version": "1.2.1",
+  "description": "TicketSwap Crawler",
+  "main": "app.js",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "co": "^4.6.0",
+    "co-request": "^1.0.0",
+    "lodash": "^4.13.1",
+    "node-notifier": "^4.6.0"
+  },
+  "devDependencies": {
+    "cli-color": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andelizondo/ticketswap-crawler.git"
+  },
+  "keywords": [
+    "ticketswap"
+  ],
+  "author": "DucDigital, improved by AcEsX",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/andelizondo/ticketswap-crawler/issues"
+  },
+  "homepage": "https://github.com/andelizondo/ticketswap-crawler#readme"
+}
