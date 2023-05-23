@@ -14,8 +14,8 @@ const FOUND_INTERVAL = 21;
 const ROBOT_INTERVAL = 1212;
 const ERROR_INTERVAL = 2121;
 const URLMAX_TIMEOUT = 2112;
-const HOST = "https://www.ticketswap.com";
-const EVENT_URL = '/event/paradigm-festival-2022/saturday-day/96f6ed53-561a-48ec-a390-71d28e072dd5/1585284';
+const HOST = "https://www.ticketswap.nl";
+const EVENT_URL = '/event/oranjebloesem-2023/regular-tickets/9fff02b8-5bd9-498d-aeff-874ca77c9a94/2557474';
 
 // APP VARIABLES
 let sleepTime;
@@ -42,12 +42,10 @@ const ticketCrawler = () => {
 
       listings.forEach((listing) => {
         const amount = listing.numberOfTicketsInListing;
-        const url = HOST + listing.uri.path;
+        const url = (listing.uri.path + "").substring(2);
 
-        if (parseInt(amount) > 0) {
+        if (parseInt(amount) > 0 && listing.price.totalPriceWithTransactionFee.amount < 6200) {
           botAction.availableTicket(url, amount);
-        } else {
-          botAction.reservedTicket(url, amount);
         }
       });
     } else {
@@ -70,7 +68,7 @@ const ticketCrawler = () => {
 // BOT FUNCTIONS
 const botAction = {
   availableTicket: (url, ticketAmmount) => {
-    exec(`open ${url}`);
+    exec(`start ${url}`);
     sleepTime = FOUND_INTERVAL;
 
     const msg = `${ticketAmmount} ticket(s) available!:`.toUpperCase();
